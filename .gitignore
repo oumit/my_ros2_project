@@ -1,3 +1,23 @@
+# ROS 2 / Colcon
 build/
 install/
 log/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
