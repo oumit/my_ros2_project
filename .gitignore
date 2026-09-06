@@ -21,3 +21,10 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# Backup files
+*.backup
+
+# Backup files
+*.backup
+*.backup_*
