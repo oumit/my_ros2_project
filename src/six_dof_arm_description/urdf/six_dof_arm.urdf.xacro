@@ -524,6 +524,19 @@
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
+  
+    <!-- gripper_ros2_control_interfaces -->
+    <joint name="gripper_left_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="gripper_right_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
   </ros2_control>
 
   <gazebo>

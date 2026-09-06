@@ -106,11 +106,51 @@ def generate_launch_description():
         ]
     )
 
+    spawn_gripper_controller = TimerAction(
+        period=10.0,
+        actions=[
+            Node(
+                package='controller_manager',
+                executable='spawner',
+                name='spawner_gripper_controller',
+                output='screen',
+                arguments=[
+                    'gripper_controller',
+                    '--controller-manager',
+                    '/controller_manager'
+                ]
+            )
+        ]
+    )
+
+    # rviz_with_saved_configuration
+    rviz_config = os.path.join(
+        package_share,
+        'rviz',
+        'six_dof_arm.rviz'
+    )
+
+    rviz = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output='screen',
+        arguments=[
+            '-d',
+            rviz_config
+        ],
+        parameters=[
+            {'use_sim_time': True}
+        ]
+    )
+
     return LaunchDescription([
         gazebo,
         clock_bridge,
         robot_state_publisher,
         spawn_robot,
         spawn_joint_state_broadcaster,
-        spawn_arm_controller
+        spawn_arm_controller,
+        spawn_gripper_controller,
+        rviz
     ])
